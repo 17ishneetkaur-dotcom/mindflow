@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>MindFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1 class="brand">MindFlow</h1>
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="journal">Journal Flow</button>
+        <button class="tab-btn" data-tab="mood">Mood Shift</button>
+        <button class="tab-btn" data-tab="progress">Progress Memory</button>
+      </nav>
+      <button class="review-btn" data-tab="review">Review</button>
+    </header>
+
+    <main class="content">
+      <section id="tab-journal" class="panel active">
+        <div class="panel-inner">
+          <h2 class="panel-title">Type what you feel</h2>
+          <div class="composer">
+            <textarea id="journal-input" placeholder="Let it flow... it's just you here."></textarea>
+            <button id="journal-save" class="send-btn" title="Save entry">↵</button>
+          </div>
+          <div id="journal-saved" class="saved-msg">Entry saved — your words are kept safe.</div>
+        </div>
+      </section>
+
+      <section id="tab-mood" class="panel">
+        <div class="panel-inner">
+          <h2 class="panel-title">How are you feeling?</h2>
+          <div class="composer">
+            <textarea id="mood-input" placeholder="Describe what's on your mind..."></textarea>
+            <button id="mood-analyze" class="send-btn" title="Analyze">↵</button>
+          </div>
+          <div id="mood-result" class="mood-result hidden">
+            <p class="mood-label">Detected mood: <span id="mood-detected"></span></p>
+            <div class="mood-block">
+              <h3>Reframing thoughts</h3>
+              <ul id="mood-reframes"></ul>
+            </div>
+            <div class="mood-block">
+              <h3>A calming thought</h3>
+              <p id="mood-calm"></p>
+            </div>
+            <div class="mood-block">
+              <h3>One small step</h3>
+              <p id="mood-step"></p>
+            </div>
+            <div class="mood-block">
+              <h3>Affirmation</h3>
+              <p id="mood-affirm" class="affirmation"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-progress" class="panel">
+        <div class="panel-inner">
+          <h2 class="panel-title">Your progress</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <p class="stat-value" id="stat-total">0</p>
+              <p class="stat-label">Total entries</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value" id="stat-week">0</p>
+              <p class="stat-label">This week</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value" id="stat-trend">—</p>
+              <p class="stat-label">Mood trend</p>
+            </div>
+          </div>
+          <h3 class="section-label">Timeline</h3>
+          <div id="timeline" class="timeline"></div>
+        </div>
+      </section>
+
+      <section id="tab-review" class="panel">
+        <div class="panel-inner">
+          <h2 class="panel-title">Your review</h2>
+          <div id="review-content" class="review-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
